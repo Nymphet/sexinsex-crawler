@@ -1,13 +1,13 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from urllib import request, parse, error
 from time import sleep
 import re, os
 
-from config import start_tid, SEXINSEX_URLS_PREFIX, encoding, path, sleeptime
+from config import start_tid, URLS_PREFIX, encoding, path, sleeptime
 
 def generate_url(tid,pid=1):
-    return ''.join([SEXINSEX_URLS_PREFIX, 'thread-', str(tid), '-', str(pid), '-1.html'])
+    return ''.join([URLS_PREFIX, 'thread-', str(tid), '-', str(pid), '-1.html'])
 
 def download(url):
     r = request.Request(url)
