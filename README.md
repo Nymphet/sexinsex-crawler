@@ -30,6 +30,6 @@ Some contents on sexinsex board are only visible after you login, fill in your l
     
     python3 extractor.py
     
-Notice: to use the login function you must have chromedriver installed and make sure its in your path
+Notice: to use the login function you must have chromedriver and selenium installed and make sure chromedriver is in your path
 
 You can always run check_failure.py before running extractor.py so as to know how much you have successfully crawled from the site. 
