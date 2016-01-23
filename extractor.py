@@ -18,7 +18,8 @@ def fuck(s):
     return ''.join(l)
 
 for htmlfile in os.listdir('%s/html/'%path):
-    with open('%s/html/%s'%(path,htmlfile),'r') as f:
+    with open('%s/html/%s'%(path,htmlfile),'r',errors='ignore') as f:
+        print('Extracting from',parse.unquote_plus(htmlfile))
         flag = True
         lines = f.readlines()
 
@@ -31,7 +32,6 @@ for htmlfile in os.listdir('%s/html/'%path):
                 break
 
         if flag:
-            print('Extracting from',parse.unquote_plus(htmlfile))
             for line in lines:
                 h = title.search(line)
                 if h:

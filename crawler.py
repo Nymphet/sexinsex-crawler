@@ -4,13 +4,9 @@ from urllib import request, parse, error
 from time import sleep
 import re, os
 
-start_tid = '2507213'  # change initial url at here
-SEXINSEX_URLS_PREFIX = 'http://www.sexinsex.net/forum/'
-encoding = 'gbk'
-path = os.path.abspath('.')
-sleeptime = 0
+from config import start_tid, SEXINSEX_URLS_PREFIX, encoding, path, sleeptime
 
-def generate_url(tid,pid):
+def generate_url(tid,pid=1):
     return ''.join([SEXINSEX_URLS_PREFIX, 'thread-', str(tid), '-', str(pid), '-1.html'])
 
 def download(url):
@@ -55,7 +51,11 @@ class page():
                     self.extracted_tids.append(n.group(1))
 
 def main():
+
+    print('Downloading the first page...')
     download(generate_url(start_tid,1))
+
+    print('OK. Extracting tids from the page')
     start_page = page(start_tid,1)
     start_page.extract_tids()
 
