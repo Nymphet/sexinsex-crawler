@@ -1,6 +1,6 @@
 # sexinsex-content-crawler
 
-A simple python crawler for novels listed on this webpage http://www.sexinsex.net/forum/thread-2507213-1-1.html
+A simple python crawler for [sexinsex board](http://www.sexinsex.net)
 
 Also works for most Discuz! forums. Just change the start url in config file.
 
