@@ -3,7 +3,7 @@
 import os
 
 # Crawler Configurations
-start_tid = '2507213'
+start_tid = '4192873'  #'2507213'
 URLS_PREFIX = 'http://www.sexinsex.net/forum/'
 encoding = 'gbk'
 path = os.path.abspath('.')
