@@ -5,31 +5,34 @@ A simple python crawler for [sexinsex board](http://www.sexinsex.net)
 Also works for most Discuz! forums. Just change the start url in config file.
 
 # Usage
+   
+Filenames are kind of self-explanatory. 
 
-To crawl public contents only:
+To download the initial page:
 
-    git clone https://github.com/Nymphet/sexinsex-content-crawler.git
+    python3 initializer.py
     
-    cd sexinsex-content-crawler
-    
-    mkdir html,text
-    
-    python3 crawler.py
-    
-    python3 extractor.py
-    
-Some contents on sexinsex board are only visible after you login, fill in your login credentials in config.py, and then:
+To extract all thread ids in the initial page (extracted thread ids are stored in a list and dumped to a pickle file):
 
-    git clone https://github.com/Nymphet/sexinsex-content-crawler.git
-    
-    cd sexinsex-content-crawler
-    
-    mkdir html,text
-    
-    python3 selenium_crawler.py
-    
-    python3 extractor.py
-    
-Notice: to use the login function you must have chromedriver and selenium installed and make sure chromedriver is in your path
+    python3 thread_tids_extractor.py
 
-You can always run check_failure.py before running extractor.py so as to know how much you have successfully crawled from the site. 
+To download all threads whose ids are stored in the list you just extracted from the initial page (all html files are saved to the html folder):
+
+    python3 selenium_html_downloader.py
+    
+To extract the main contents of all html files in the html folder (saved to the text folder):    
+    
+    python3 page_content_extractor.py
+
+To extract attachment ids in all html files in the html folder (extracted attachment ids are stored in a list and dumped to a pickle file):
+
+    python3 page_aids_extractor.py
+    
+To download all attachments whose ids are stored in the list you just extracted from files in the html folder (attachments are saved to your Downloads folder):
+
+    python3 selenium_attachment_downloader.py
+    
+Note that you must have selenium and chromedriver installed to run programs that start with "selenium". Most pages and attachments are only available after you login, so you may need to fill in your login credentials in config.py to download them.
+    
+
+    
