@@ -1,4 +1,4 @@
-# sexinsex-content-crawler
+# sexinsex-crawler
 
 A simple python crawler for [sexinsex board](http://www.sexinsex.net)
 
