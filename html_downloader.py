@@ -7,7 +7,7 @@
 import pickle
 
 from config import path, sleeptime, start_tid
-from functions import download_html, generate_thread_url
+from utils import download_html, generate_thread_url
 
 tids_list = pickle.load('%s/pickle/tids_from_thread_%s.p'%(path,start_tid))
 

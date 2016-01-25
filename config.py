@@ -9,6 +9,9 @@ encoding = 'gbk'
 path = os.path.abspath('.')
 sleeptime = 0
 
+download_html_files = False
+download_attachments = True
+
 # Credentials
 username = ''
 password = ''

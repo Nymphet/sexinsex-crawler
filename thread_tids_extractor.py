@@ -5,7 +5,7 @@ from time import sleep
 import re, pickle
 
 from config import start_tid, URLS_PREFIX, encoding, path, sleeptime
-from functions import generate_thread_url
+from utils import generate_thread_url
 
 class thread():
 

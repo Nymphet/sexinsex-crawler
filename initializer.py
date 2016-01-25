@@ -5,7 +5,7 @@
 
 import os
 
-from functions import download_html, generate_thread_url
+from utils import download_html, generate_thread_url
 from config import start_tid
 
 def create_directory(d):

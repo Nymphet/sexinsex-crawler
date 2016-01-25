@@ -10,12 +10,11 @@ from config import username as cred_username
 from config import password as cred_password
 from config import sleeptime, start_tid, path
 from thread_tids_extractor import page
-from functions import generate_thread_url, generate_attachment_url
+from utils import generate_thread_url, generate_attachment_url
+from config import download_html_files as dh
+from config import download_attachments as da
 
-dh = False
-da = True
-
-
+# todo: add exception handling
 print('Loading tids from thread %s'%start_tid)
 if dh:
     with open('%s/pickle/tids_from_thread_%s.p'%(path,start_tid),'rb') as p:
@@ -38,15 +37,13 @@ if cred_password and cred_username:
     password = browser.find_element_by_name('password')
     password.send_keys(cred_password + Keys.RETURN)
 
-# download html files
-
-success_count = 0
-failure_count = 0
-#t_count = len(tids_list)
-
 print('Download started. Kill process to terminate. Ctrl-C to skip current task')
 
+# download html files
 if dh:
+    success_count = 0
+    failure_count = 0
+    t_count = len(tids_list)
     for tid in tids_list:
         try:
             url = generate_thread_url(tid,1)
@@ -64,8 +61,13 @@ if dh:
             print(type(inst))
             print(inst.args)
             failure_count += 1
+    print('Download finished,', success_count, 'succeeded,', failure_count, 'failed. Files saved in html folder.')
 
+# download attachments
 if da:
+    success_count = 0
+    failure_count = 0
+    a_count = len(aids_list)
     for aid in aids_list:
         try:
             url = generate_attachment_url(aid)
@@ -80,6 +82,5 @@ if da:
             print(type(inst))
             print(inst.args)
             failure_count += 1
-
-print('Download finished,', success_count, 'succeeded,', failure_count, 'failed. Files saved in html folder.')
+    print('Download finished,', success_count, 'succeeded,', failure_count, 'failed. Files saved in html folder.')
 browser.close()
