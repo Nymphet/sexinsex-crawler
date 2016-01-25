@@ -33,6 +33,7 @@ To download all attachments whose ids are stored in the list you just extracted 
     python3 selenium_attachment_downloader.py
     
 Note that you must have selenium and chromedriver installed to run programs that start with "selenium". Most pages and attachments are only available after you login, so you may need to fill in your login credentials in config.py to download them.
-    
 
-    
+# Known bugs
+
+There are a lot of empty .crdownload files generated in your download folder if you run selenium_attachment_downloader.py, but all files actually finished downloading and it's safe to remove these empty .crdownload files. You will not miss any  attachment.
