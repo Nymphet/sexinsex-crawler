@@ -5,8 +5,8 @@ A simple python crawler for [sexinsex board](http://www.sexinsex.net)
 Also works for most Discuz! forums. Just change the start url in config file.
 
 # Usage
-   
-Filenames are kind of self-explanatory. 
+
+First change the settings in config.py
 
 To download the initial page:
 
@@ -16,7 +16,7 @@ To extract all thread ids in the initial page (extracted thread ids are stored i
 
     python3 thread_tids_extractor.py
 
-To download all threads whose ids are stored in the list you just extracted from the initial page (all html files are saved to the html folder):
+To download all threads from the list you just extracted from the initial page (all html files are saved to the html folder):
 
     python3 selenium_html_downloader.py
     
@@ -28,7 +28,7 @@ To extract attachment ids in all html files in the html folder (extracted attach
 
     python3 page_aids_extractor.py
     
-To download all attachments whose ids are stored in the list you just extracted from files in the html folder (attachments are saved to your Downloads folder):
+To download all attachments from the list you just extracted from files in the html folder (attachments are saved to your Downloads folder):
 
     python3 selenium_attachment_downloader.py
     
